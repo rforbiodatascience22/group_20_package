@@ -14,16 +14,21 @@ knitr::opts_chunk$set(
 )
 ```
 
+# MolBio
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
 ```{r setup}
 library(MolBio)
 ```
 
-
 ## Overview
 
-MolBio is a package regarding the Central Dogma of Molecular Biology.
+`MolBio` is a package regarding the Central Dogma of Molecular Biology.
 
-MolBio provides a consistent set of verbs that help you solve the most common molecular biology challenges.
+`MolBio` provides a consistent set of verbs that help you solve the most common molecular biology challenges.
 
 * `make_dna()` generates a random sample of DNA. 
 
@@ -39,7 +44,7 @@ MolBio provides a consistent set of verbs that help you solve the most common mo
 
 You can learn more about the functions in `vignette(MolBio)`.
 
-If you are new to MolBio, the best place to start is this github repository.
+If you are new to `MolBio`, the best place to start is this github repository.
 
 (If you're trying to generate a protein sequence from a DNA sequence, see `vignette(MolBio)`
 
@@ -49,12 +54,16 @@ If you are new to MolBio, the best place to start is this github repository.
 
 ### Development Version
 
-The easiest way to get MolBio is to install the whole package:
+The easiest way to get `MolBio` is to install the whole package:
 
 ```{r, eval = FALSE}
 install.packages("devtools")
 devtools::install_github("rforbiodatascience22/group_20_package")
 ```
+
+The link to the Github repository is : 
+
+<https://github.com/rforbiodatascience22/group_20_package> 
 
 
 ## Usage
@@ -63,8 +72,14 @@ devtools::install_github("rforbiodatascience22/group_20_package")
 
 The first verb is `make_dna()`. It creates a string of DNA 
 
-```{r, eval = FALSE}
-dna_seq <- make_dna(300)
+```{r message=FALSE, warning=FALSE}
+
+library(MolBio)
+```
+
+```{r}
+dna_seq <- make_dna(240)
+dna_seq
 ```
 
 ***
@@ -74,8 +89,9 @@ dna_seq <- make_dna(300)
 
 The second verb is `make_rna()`. It creates a string of RNA 
 
-```{r, eval = FALSE}
+```{r}
 rna_sequence <- make_rna(dna_seq)
+rna_sequence
 ```
 
 ***
@@ -84,8 +100,9 @@ rna_sequence <- make_rna(dna_seq)
 
 The third verb is `make_codon()`. It creates separate strings of codons
 
-```{r, eval = FALSE}
+```{r}
 codon_produced <- make_codon(rna_sequence)
+codon_produced
 ```
 
 
@@ -96,8 +113,8 @@ codon_produced <- make_codon(rna_sequence)
 The fourth verb is `make_polypeptide()`. It creates a polypeptide sequence from the codons.
 
 
-```{r, eval = FALSE}
-polypeptide_sequence <- make_polypeptide(c("AUG", "CAA", "CGA", "UCA"))
+```{r}
+polypeptide_sequence <- make_polypeptide(codon_produced)
 polypeptide_sequence
 ```
 
@@ -110,11 +127,25 @@ The fifth verb is `find_aa_distribution()`. It plots a histogram of the distribu
 
 
 
-```{r, eval = FALSE}
-distrib_plot <- find_aa_distribution("HEGGHNRSRSSRTTSLKEET")
+```{r}
+distrib_plot <- find_aa_distribution(polypeptide_sequence)
+distrib_plot
 ```
 
+***
 
+Alternatively, the functions can be used in conjunction with one another. 
+
+```{r eval=FALSE, warning=FALSE}
+
+make_dna(20) %>% 
+  make_rna() %>% 
+  make_codon() %>% 
+  make_polypeptide() %>% 
+  find_aa_distribution()
+```
+
+***
 
 ## Getting help
 
@@ -122,4 +153,3 @@ If you encounter a clear bug, please file an issue with a minimal reproducible e
 For questions and other discussion, please email `s172084@dtu.dk`
 
 Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
-
