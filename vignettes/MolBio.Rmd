@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 library(MolBio)
 ```
 
+
 ## Overview
 
 MolBio is a package regarding the Central Dogma of Molecular Biology.
@@ -52,7 +53,7 @@ The easiest way to get MolBio is to install the whole package:
 
 ```{r, eval = FALSE}
 install.packages("devtools")
-devtools::install_github("s172084/ZenDNA")
+devtools::install_github("rforbiodatascience22/group_20_package")
 ```
 
 
@@ -111,8 +112,8 @@ The fifth verb is `find_aa_distribution()`. It plots a histogram of the distribu
 
 ```{r, eval = FALSE}
 distrib_plot <- find_aa_distribution("HEGGHNRSRSSRTTSLKEET")
-distrib_plot
 ```
+
 
 
 ## Getting help

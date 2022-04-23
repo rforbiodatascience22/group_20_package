@@ -15,9 +15,9 @@ library(MolBio)
 
 ## Overview
 
-MolBio is a package regarding the Central Dogma of Molecular Biology.
+`MolBio` is a package regarding the Central Dogma of Molecular Biology.
 
-MolBio provides a consistent set of verbs that help you solve the most
+`MolBio` provides a consistent set of verbs that help you solve the most
 common molecular biology challenges.
 
 -   `make_dna()` generates a random sample of DNA.
@@ -33,9 +33,9 @@ common molecular biology challenges.
 
 -   `the_codon_table` Codon to Amino Acid table.
 
-You can learn more about the functions in `vignette(MolBio)`.
+You can learn more about the functions in `vignette(MolBio)`?
 
-If you are new to MolBio, the best place to start is this github
+If you are new to `MolBio`, the best place to start is this github
 repository.
 
 (If you’re trying to generate a protein sequence from a DNA sequence,
@@ -45,12 +45,14 @@ see `vignette(MolBio)`
 
 ### Development Version
 
-The easiest way to get MolBio is to install the whole package:
+The easiest way to get `MolBio` is to install the whole package:
 
 ``` r
 install.packages("devtools")
 devtools::install_github("rforbiodatascience22/group_20_package")
 ```
+
+The link to the Github repository is :
 
 ## Usage
 
@@ -59,7 +61,13 @@ devtools::install_github("rforbiodatascience22/group_20_package")
 The first verb is `make_dna()`. It creates a string of DNA
 
 ``` r
-dna_seq <- make_dna(300)
+library(MolBio)
+```
+
+``` r
+dna_seq <- make_dna(240)
+dna_seq
+#> [1] "CAGTAGCTAGAAGGGGACTCGAACGCCACCTGGGTTCTCAACTAGGGACCCAGTTGTACCGTCCGCGTAATGCTTGCGAGGCTGCCACCGCTGAATTCAGCCCTTACAACATTGAGATCTGCTGTGAATTGCAAGGTTAAACCTTGGCTGAATAATCGTGCGGTTCTTAGCCAGTGAGTCTACCGTCTTTAACAACACTCGGGAATTGAGATGAAGAGAAACGCACCAGAGATGCACCAG"
 ```
 
 ------------------------------------------------------------------------
@@ -70,6 +78,8 @@ The second verb is `make_rna()`. It creates a string of RNA
 
 ``` r
 rna_sequence <- make_rna(dna_seq)
+rna_sequence
+#> [1] "CAGUAGCUAGAAGGGGACUCGAACGCCACCUGGGUUCUCAACUAGGGACCCAGUUGUACCGUCCGCGUAAUGCUUGCGAGGCUGCCACCGCUGAAUUCAGCCCUUACAACAUUGAGAUCUGCUGUGAAUUGCAAGGUUAAACCUUGGCUGAAUAAUCGUGCGGUUCUUAGCCAGUGAGUCUACCGUCUUUAACAACACUCGGGAAUUGAGAUGAAGAGAAACGCACCAGAGAUGCACCAG"
 ```
 
 ------------------------------------------------------------------------
@@ -80,6 +90,14 @@ The third verb is `make_codon()`. It creates separate strings of codons
 
 ``` r
 codon_produced <- make_codon(rna_sequence)
+codon_produced
+#>  [1] "CAG" "UAG" "CUA" "GAA" "GGG" "GAC" "UCG" "AAC" "GCC" "ACC" "UGG" "GUU"
+#> [13] "CUC" "AAC" "UAG" "GGA" "CCC" "AGU" "UGU" "ACC" "GUC" "CGC" "GUA" "AUG"
+#> [25] "CUU" "GCG" "AGG" "CUG" "CCA" "CCG" "CUG" "AAU" "UCA" "GCC" "CUU" "ACA"
+#> [37] "ACA" "UUG" "AGA" "UCU" "GCU" "GUG" "AAU" "UGC" "AAG" "GUU" "AAA" "CCU"
+#> [49] "UGG" "CUG" "AAU" "AAU" "CGU" "GCG" "GUU" "CUU" "AGC" "CAG" "UGA" "GUC"
+#> [61] "UAC" "CGU" "CUU" "UAA" "CAA" "CAC" "UCG" "GGA" "AUU" "GAG" "AUG" "AAG"
+#> [73] "AGA" "AAC" "GCA" "CCA" "GAG" "AUG" "CAC" "CAG"
 ```
 
 ------------------------------------------------------------------------
@@ -90,8 +108,9 @@ The fourth verb is `make_polypeptide()`. It creates a polypeptide
 sequence from the codons.
 
 ``` r
-polypeptide_sequence <- make_polypeptide(c("AUG", "CAA", "CGA", "UCA"))
+polypeptide_sequence <- make_polypeptide(codon_produced)
 polypeptide_sequence
+#> [1] "Q_LEGDSNATWVLN_GPSCTVRVMLARLPPLNSALTTLRSAVNCKVKPWLNNRAVLSQ_VYRL_QHSGIEMKRNAPEMHQ"
 ```
 
 ------------------------------------------------------------------------
@@ -103,17 +122,26 @@ The fifth verb is `find_aa_distribution()`. It plots a histogram of the
 distribution of amino acids in the polypeptide.
 
 ``` r
-distrib_plot <- find_aa_distribution("HEGGHNRSRSSRTTSLKEET")
-```
-
-``` r
-distrib_plot <- find_aa_distribution("HEGGHNRSRSSRTTSLKEET")
+distrib_plot <- find_aa_distribution(polypeptide_sequence)
 distrib_plot
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto auto auto 0;" />
+------------------------------------------------------------------------
+
+Alternatively, the functions can be used in conjunction with one
+another.
+
+``` r
+make_dna(20) %>% 
+  make_rna() %>% 
+  make_codon() %>% 
+  make_polypeptide() %>% 
+  find_aa_distribution()
+```
+
+------------------------------------------------------------------------
 
 ## Getting help
 
