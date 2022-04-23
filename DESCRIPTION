@@ -22,6 +22,7 @@ Imports:
     stringr,
     ggthemes,
     magrittr,
+    tidyverse
 Suggests: 
     knitr,
     rmarkdown,
