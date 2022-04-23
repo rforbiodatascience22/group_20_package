@@ -33,7 +33,7 @@ common molecular biology challenges.
 
 -   `the_codon_table` Codon to Amino Acid table.
 
-You can learn more about the functions in `vignette(MolBio)`?
+You can learn more about the functions in `vignette(MolBio)`.
 
 If you are new to `MolBio`, the best place to start is this github
 repository.
@@ -67,7 +67,7 @@ library(MolBio)
 ``` r
 dna_seq <- make_dna(240)
 dna_seq
-#> [1] "CAGTAGCTAGAAGGGGACTCGAACGCCACCTGGGTTCTCAACTAGGGACCCAGTTGTACCGTCCGCGTAATGCTTGCGAGGCTGCCACCGCTGAATTCAGCCCTTACAACATTGAGATCTGCTGTGAATTGCAAGGTTAAACCTTGGCTGAATAATCGTGCGGTTCTTAGCCAGTGAGTCTACCGTCTTTAACAACACTCGGGAATTGAGATGAAGAGAAACGCACCAGAGATGCACCAG"
+#> [1] "ACATCCAAGTCCATCCACCTGTGCGGAAGTAACATAACGCCTATACACATACCAACGTTCCAATACCCAAAGCCAAAAAGATTCGACCCAGGTCACCTACGCAGACCGCGTACTCATCTGCTGACGCTACTCTATATGCTCACTCTGATGCCAGGAGGACACCTCATTAGGGGTGGTCCTCGTGCACCGCAGGGAGATGTGCCTAATTGGTCCCTGTCGACGGAGAATAGTAAGACTCTA"
 ```
 
 ------------------------------------------------------------------------
@@ -79,7 +79,7 @@ The second verb is `make_rna()`. It creates a string of RNA
 ``` r
 rna_sequence <- make_rna(dna_seq)
 rna_sequence
-#> [1] "CAGUAGCUAGAAGGGGACUCGAACGCCACCUGGGUUCUCAACUAGGGACCCAGUUGUACCGUCCGCGUAAUGCUUGCGAGGCUGCCACCGCUGAAUUCAGCCCUUACAACAUUGAGAUCUGCUGUGAAUUGCAAGGUUAAACCUUGGCUGAAUAAUCGUGCGGUUCUUAGCCAGUGAGUCUACCGUCUUUAACAACACUCGGGAAUUGAGAUGAAGAGAAACGCACCAGAGAUGCACCAG"
+#> [1] "ACAUCCAAGUCCAUCCACCUGUGCGGAAGUAACAUAACGCCUAUACACAUACCAACGUUCCAAUACCCAAAGCCAAAAAGAUUCGACCCAGGUCACCUACGCAGACCGCGUACUCAUCUGCUGACGCUACUCUAUAUGCUCACUCUGAUGCCAGGAGGACACCUCAUUAGGGGUGGUCCUCGUGCACCGCAGGGAGAUGUGCCUAAUUGGUCCCUGUCGACGGAGAAUAGUAAGACUCUA"
 ```
 
 ------------------------------------------------------------------------
@@ -91,13 +91,13 @@ The third verb is `make_codon()`. It creates separate strings of codons
 ``` r
 codon_produced <- make_codon(rna_sequence)
 codon_produced
-#>  [1] "CAG" "UAG" "CUA" "GAA" "GGG" "GAC" "UCG" "AAC" "GCC" "ACC" "UGG" "GUU"
-#> [13] "CUC" "AAC" "UAG" "GGA" "CCC" "AGU" "UGU" "ACC" "GUC" "CGC" "GUA" "AUG"
-#> [25] "CUU" "GCG" "AGG" "CUG" "CCA" "CCG" "CUG" "AAU" "UCA" "GCC" "CUU" "ACA"
-#> [37] "ACA" "UUG" "AGA" "UCU" "GCU" "GUG" "AAU" "UGC" "AAG" "GUU" "AAA" "CCU"
-#> [49] "UGG" "CUG" "AAU" "AAU" "CGU" "GCG" "GUU" "CUU" "AGC" "CAG" "UGA" "GUC"
-#> [61] "UAC" "CGU" "CUU" "UAA" "CAA" "CAC" "UCG" "GGA" "AUU" "GAG" "AUG" "AAG"
-#> [73] "AGA" "AAC" "GCA" "CCA" "GAG" "AUG" "CAC" "CAG"
+#>  [1] "ACA" "UCC" "AAG" "UCC" "AUC" "CAC" "CUG" "UGC" "GGA" "AGU" "AAC" "AUA"
+#> [13] "ACG" "CCU" "AUA" "CAC" "AUA" "CCA" "ACG" "UUC" "CAA" "UAC" "CCA" "AAG"
+#> [25] "CCA" "AAA" "AGA" "UUC" "GAC" "CCA" "GGU" "CAC" "CUA" "CGC" "AGA" "CCG"
+#> [37] "CGU" "ACU" "CAU" "CUG" "CUG" "ACG" "CUA" "CUC" "UAU" "AUG" "CUC" "ACU"
+#> [49] "CUG" "AUG" "CCA" "GGA" "GGA" "CAC" "CUC" "AUU" "AGG" "GGU" "GGU" "CCU"
+#> [61] "CGU" "GCA" "CCG" "CAG" "GGA" "GAU" "GUG" "CCU" "AAU" "UGG" "UCC" "CUG"
+#> [73] "UCG" "ACG" "GAG" "AAU" "AGU" "AAG" "ACU" "CUA"
 ```
 
 ------------------------------------------------------------------------
@@ -110,7 +110,7 @@ sequence from the codons.
 ``` r
 polypeptide_sequence <- make_polypeptide(codon_produced)
 polypeptide_sequence
-#> [1] "Q_LEGDSNATWVLN_GPSCTVRVMLARLPPLNSALTTLRSAVNCKVKPWLNNRAVLSQ_VYRL_QHSGIEMKRNAPEMHQ"
+#> [1] "TSKSIHLCGSNITPIHIPTFQYPKPKRFDPGHLRRPRTHLLTLLYMLTLMPGGHLIRGGPRAPQGDVPNWSLSTENSKTL"
 ```
 
 ------------------------------------------------------------------------
