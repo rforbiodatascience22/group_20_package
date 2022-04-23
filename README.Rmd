@@ -60,7 +60,10 @@ install.packages("devtools")
 devtools::install_github("rforbiodatascience22/group_20_package")
 ```
 
-The link to the Github repository is :  
+The link to the Github repository is : 
+
+<https://github.com/rforbiodatascience22/group_20_package> 
+
 
 ## Usage
 

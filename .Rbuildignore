@@ -4,3 +4,6 @@
 ^README\.Rmd$
 ^doc$
 ^Meta$
+^MolBio\.Rcheck$
+^MolBio.*\.tar\.gz$
+^MolBio.*\.tgz$

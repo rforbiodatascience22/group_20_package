@@ -6,3 +6,6 @@
 inst/doc
 /doc/
 /Meta/
+MolBio.Rcheck/
+MolBio*.tar.gz
+MolBio*.tgz
